@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@midwayjs/axios": "^2.12.1",
+    "@midwayjs/core": "^2.12.1",
     "@midwayjs/decorator": "^2.3.0",
     "@midwayjs/web": "^2.3.0",
+    "axios": "^0.21.1",
     "egg": "^2.0.0",
     "egg-scripts": "^2.10.0",
     "ssr-core-vue3": "^5.0.0",

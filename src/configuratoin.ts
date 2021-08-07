@@ -1,6 +1,7 @@
 import { Configuration } from '@midwayjs/decorator';
 import * as axios from '@midwayjs/axios';
 import { join } from 'path';
+import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
 
 @Configuration({
   imports: [
@@ -8,4 +9,6 @@ import { join } from 'path';
   ],
   importConfigs: [join(__dirname, 'config')],
 })
-export class ContainerLifeCycle {}
+export class ContainerLifeCycle implements ILifeCycle {
+  async onReady(container: IMidwayContainer): Promise<void> {}
+}
