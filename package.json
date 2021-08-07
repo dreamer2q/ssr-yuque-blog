@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@midwayjs/axios": "^2.12.1",
     "@midwayjs/decorator": "^2.3.0",
     "@midwayjs/web": "^2.3.0",
     "egg": "^2.0.0",
@@ -16,12 +17,23 @@
   },
   "devDependencies": {
     "@midwayjs/egg-ts-helper": "^1.0.5",
+    "@vitejs/plugin-vue": "^1.4.0",
+    "bindings": "^1.5.0",
     "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard-vue-ts": "^1.0.5",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.15.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "mwts": "^1.2.2",
+    "prettier": "^2.3.2",
     "ssr": "^5.0.0",
     "ssr-plugin-midway": "^5.0.0",
     "ssr-plugin-vue3": "^5.0.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "vite": "^2.4.4"
   },
   "scripts": {
     "prod": "ssr build && egg-scripts start --daemon --port=3000 --title=midway-server-my_midway_project --framework=@midwayjs/web",
@@ -44,5 +56,16 @@
   },
   "egg": {
     "framework": "@midwayjs/web"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier"
+    ]
   }
 }
