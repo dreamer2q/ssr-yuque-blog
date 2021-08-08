@@ -16,15 +16,12 @@ export class Api {
   detailService: IApiDetailService;
 
   @Inject()
-  httpService: HttpService;
+  http: HttpService;
 
   @Get('/test')
   async testGet() {
-    // const data = await this.http.get('/dreamer2q/blog/docs');
-    // return data;
-    return {
-      data: 'test',
-    };
+    const data = await this.http.get('/docs/dreamer2q/blog');
+    return data;
   }
 
   @Get('/index')
