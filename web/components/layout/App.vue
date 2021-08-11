@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col bg-gray-50">
+  <div style="width: 960px" class="flex flex-col bg-gray-50">
     <Header />
-    <div class="flex-grow self-center max-w-screen-lg bg-white">
+    <div style="width: 960px" class="flex-grow self-center bg-white">
       <router-view :fetchData="fetchData" />
     </div>
     <Footer />
