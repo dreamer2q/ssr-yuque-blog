@@ -1,7 +1,6 @@
-import { HttpService } from '@midwayjs/axios';
-import { Inject, Controller, Provide, Get } from '@midwayjs/decorator';
+import { Inject, Controller, Provide, Get, Param } from '@midwayjs/decorator';
 import { Context } from 'egg';
-import { IApiService, IApiDetailService } from '../interface';
+import { RepositoryService } from 'src/service/repository';
 
 @Provide()
 @Controller('/api')
@@ -9,32 +8,16 @@ export class Api {
   @Inject()
   ctx: Context;
 
-  @Inject('ApiService')
-  service: IApiService;
-
-  @Inject('ApiDetailService')
-  detailService: IApiDetailService;
-
   @Inject()
-  http: HttpService;
+  repository: RepositoryService;
 
-  @Get('/list')
-  async getListData() {
-    const data = await this.http.get('/repos/dreamer2q/blog/docs');
-    return data.data;
+  @Get('/docs')
+  async getDocs() {
+    return await this.repository.getDocs();
   }
 
-  @Get('/index')
-  async getIndexData() {
-    const data = await this.service.index();
-    return data;
-  }
-
-  @Get('/detail/:id')
-  async getDetailData() {
-    const { ctx, detailService } = this;
-    const id = ctx.params.id;
-    const data = await detailService.index(id);
-    return data;
+  @Get('/docs/:slug')
+  async getDocDetail(@Param() slug: string) {
+    return await this.repository.getDocDetail(slug);
   }
 }
