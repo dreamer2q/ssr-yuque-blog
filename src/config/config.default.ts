@@ -9,13 +9,13 @@ export default (appInfo: EggAppInfo) => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1611038425326_4049';
   // add your config here
-  config.middleware = [];
+  config.middleware = ['errorHandler', 'notfoundHandler'];
 
   config.axios = {
     baseURL: 'https://www.yuque.com/api/v2',
     timeout: 1000,
     headers: {
-      'X-Auth-Token': '8yx2GugoI9kLsKAQ9pDR1f2S371Vwh4D8EHzx1OW',
+      'X-Auth-Token': 'Hs7u2y2fiG8rNYS8K1CPdW36PokYElfPmNEjxSN1',
       'User-Agent': 'midway-yuque-blog',
     },
   };

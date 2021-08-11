@@ -1,8 +1,7 @@
-import { Readable } from 'stream';
 import { Controller, Get, Provide, Inject } from '@midwayjs/decorator';
 import { Context } from 'egg';
-import { render } from 'ssr-core-vue3';
 import { IApiService, IApiDetailService } from '../interface';
+import { HttpService } from '@midwayjs/axios';
 
 interface IEggContext extends Context {
   apiService: IApiService;
@@ -10,30 +9,30 @@ interface IEggContext extends Context {
 }
 
 @Provide()
-@Controller('/')
+@Controller('/', { middleware: ['ssrHandler'] })
 export class Index {
   @Inject()
   ctx: IEggContext;
 
-  @Inject('ApiService')
-  apiService: IApiService;
+  @Inject()
+  http: HttpService;
 
-  @Inject('ApiDetailService')
-  apiDeatilservice: IApiDetailService;
+  // @Get('/')
+  // async handler(): Promise<void> {
+  //   // try {
+  //   //   const stream = await render<Readable>(this.ctx, {
+  //   //     stream: true,
+  //   //   });
+  //   //   this.ctx.body = stream;
+  //   // } catch (error) {
+  //   //   console.log(error);
+  //   //   this.ctx.body = error;
+  //   // }
+  // }
 
   @Get('/')
-  @Get('/detail/:id')
-  async handler(): Promise<void> {
-    try {
-      this.ctx.apiService = this.apiService;
-      this.ctx.apiDeatilservice = this.apiDeatilservice;
-      const stream = await render<Readable>(this.ctx, {
-        stream: true,
-      });
-      this.ctx.body = stream;
-    } catch (error) {
-      console.log(error);
-      this.ctx.body = error;
-    }
+  async getListData() {
+    const data = await this.http.get('/repos/dreamer2q/blog/docs');
+    return data.data;
   }
 }

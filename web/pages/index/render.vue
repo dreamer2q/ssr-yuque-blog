@@ -1,37 +1,42 @@
 
 <template>
-  <div>
-    <Search />
-    <template v-if="indexData">
-      <Slider :data="indexData[0].components" />
-      <Rectangle :data="indexData[1].components" />
-    </template>
-    <template v-else>
-      <img src="https://gw.alicdn.com/tfs/TB1v.zIE7T2gK0jSZPcXXcKkpXa-128-128.gif" class="loading">
-    </template>
+  <div class="flex flex-row border-2">
+    <Sidebar />
+    <div class="w-4"></div>
+    <div class="p-2">
+      <div v-for="article in articles" :key="article.id">
+        <!-- {{ article.title }} -->
+        <article-item :item="article" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapState } from 'vuex'
-import Slider from '@/components/slider/index.vue'
-import Rectangle from '@/components/rectangle/index.vue'
-import Search from '@/components/search/index.vue'
+import Search from '@/components/search/index.vue';
+import ArticleItem from '@/components/articleItem/index.vue';
+import Sidebar from '@/components/sidebar/index.vue';
 
-export default defineComponent({
+export default {
   components: {
-    Slider,
-    Rectangle,
-    Search
+    Search,
+    ArticleItem,
+    Sidebar,
   },
-  computed: {
-    ...mapState({
-      indexData: state => state.indexStore?.data
-    })
-  }
-})
+  props: ['fetchData'],
+  setup(props) {
+    console.log(Object.keys(props));
+
+    return {
+      articles: props.fetchData.data || [],
+    };
+  },
+  created() {
+    // console.log(this.$);
+    console.log(this.articles.length);
+  },
+};
 </script>
 
-<style>
+<style lang="less" scope>
 </style>

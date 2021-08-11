@@ -18,10 +18,10 @@ export class Api {
   @Inject()
   http: HttpService;
 
-  @Get('/test')
-  async testGet() {
-    const data = await this.http.get('/docs/dreamer2q/blog');
-    return data;
+  @Get('/list')
+  async getListData() {
+    const data = await this.http.get('/repos/dreamer2q/blog/docs');
+    return data.data;
   }
 
   @Get('/index')

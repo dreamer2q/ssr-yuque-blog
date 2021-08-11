@@ -18,17 +18,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
-import Player from '@/components/player/index.vue';
 import Search from '@/components/search/index.vue';
-import Brief from '@/components/brief/index.vue';
-import Recommend from '@/components/recommend/index.vue';
 
 export default defineComponent({
   components: {
-    Player,
     Search,
-    Brief,
-    Recommend,
   },
   computed: {
     ...mapState({
