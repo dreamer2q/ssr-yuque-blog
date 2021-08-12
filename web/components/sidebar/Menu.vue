@@ -6,7 +6,7 @@
       :key="key"
       :class="{ 'menu-active': isActive(key) }"
     >
-      <a :href="key" class="">
+      <a :href="key" class="block w-full">
         <FontAwesomeIcon style="max-width: 13px" :icon="menu.icon" />
         <span class="ml-2">
           {{ menu.title }}
