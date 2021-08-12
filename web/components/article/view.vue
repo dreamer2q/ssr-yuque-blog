@@ -8,17 +8,20 @@
     <ArticleMeta :item="item" />
     <!-- content -->
     <div id="lake-view" class="px-4 py-8" v-html="body"></div>
+    <ArticlePager :pager="item.pager" />
   </div>
 </template>
 
 <script lang="ts">
 import ArticleMeta from './meta.vue';
 import posthtml from 'posthtml';
+import ArticlePager from './pager.vue';
 
 export default {
   props: ['item'],
   components: {
     ArticleMeta,
+    ArticlePager,
   },
   setup(props) {
     const data = props.item;

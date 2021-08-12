@@ -1,4 +1,11 @@
-import { Controller, Get, Provide, Inject, Param } from '@midwayjs/decorator';
+import {
+  Controller,
+  Get,
+  Provide,
+  Inject,
+  Param,
+  Query,
+} from '@midwayjs/decorator';
 import { Context } from 'egg';
 import { IApiService, IApiDetailService } from '../interface';
 import { HttpService } from '@midwayjs/axios';
@@ -22,8 +29,8 @@ export class Index {
   repository: RepositoryService;
 
   @Get('/')
-  async index() {
-    return await this.repository.getDocs();
+  async index(@Query() limit = 20, @Query() offset = 0) {
+    return await this.repository.getDocs({ limit, offset });
   }
 
   @Get('/articles/:slug')

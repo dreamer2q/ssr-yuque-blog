@@ -28,7 +28,6 @@
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCalendar, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { format } from 'date-fns';
 import ArticleMeta from './meta.vue';
 
 export default {

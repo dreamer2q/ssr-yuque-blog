@@ -1,7 +1,13 @@
 import { Configuration } from '@midwayjs/decorator';
 import * as axios from '@midwayjs/axios';
 import { join } from 'path';
-import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
+import {
+  ILifeCycle,
+  IMidwayApplication,
+  IMidwayContainer,
+} from '@midwayjs/core';
+
+import AxiosInstance from 'axios';
 
 @Configuration({
   imports: [
@@ -10,5 +16,12 @@ import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
   importConfigs: [join(__dirname, 'config')],
 })
 export class ContainerLifeCycle implements ILifeCycle {
-  async onReady(container: IMidwayContainer): Promise<void> {}
+  async onReady(
+    container: IMidwayContainer,
+    app: IMidwayApplication
+  ): Promise<void> {
+    const config = app.getConfig('http2');
+    const http2 = AxiosInstance.create(config);
+    container.registerObject('http2', http2);
+  }
 }
