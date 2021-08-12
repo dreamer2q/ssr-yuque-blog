@@ -1,7 +1,7 @@
 
 <template>
-  <div style="width: 240px" class="flex-shrink-0">
-    <div class="flex flex-col">
+  <div style="width: 240px" class="flex-shrink-0 pr-2">
+    <div class="flex flex-col rounded-lg overflow-hidden">
       <!-- logo -->
       <Logo />
       <!-- menu -->

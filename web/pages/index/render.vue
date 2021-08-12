@@ -1,13 +1,14 @@
 
 <template>
-  <div class="flex flex-row border-2">
+  <div class="flex flex-row">
     <Sidebar />
-    <!-- <div class="w-4"></div> -->
-    <div class="p-2">
-      <div v-for="article in articles" :key="article.id">
-        <!-- {{ article.title }} -->
-        <article-item :item="article" />
-      </div>
+    <!-- article list -->
+    <div>
+      <ArticleItem
+        v-for="article in articles"
+        :key="article.id"
+        :item="article"
+      />
     </div>
   </div>
 </template>
@@ -35,3 +36,6 @@ export default {
   },
 };
 </script>
+
+
+<style lang="stylus" scoped></style>

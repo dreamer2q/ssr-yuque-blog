@@ -1,5 +1,5 @@
 <template>
-  <div class="my-2 flex flex-col items-center">
+  <div class="bg-white rounded-lg mt-2 my-2 flex flex-col items-center">
     <div class="p-4 flex">
       <img
         style="width: 128px"
@@ -19,4 +19,3 @@
     </div>
   </div>
 </template>
-
