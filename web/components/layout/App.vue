@@ -28,6 +28,12 @@ export default {
 </script>
 
 <style>
+svg[class*='fa'] {
+  max-width: 16px;
+  max-height: 16px;
+  display: inline-block;
+}
+
 body {
   background-color: #eeeff0;
 }

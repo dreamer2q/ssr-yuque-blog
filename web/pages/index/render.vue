@@ -14,8 +14,9 @@
 </template>
 
 <script lang="ts">
-import ArticleItem from '@/components/articleItem/index.vue';
+import ArticleItem from '@/components/article/item.vue';
 import Sidebar from '@/components/sidebar/index.vue';
+import { DocSeri } from '@/interface';
 
 export default {
   components: {
@@ -25,9 +26,9 @@ export default {
   props: ['fetchData'],
   setup(props) {
     console.log(Object.keys(props));
-
+    const articles: DocSeri[] = props.fetchData.data || [];
     return {
-      articles: props.fetchData.data || [],
+      articles: articles.filter(v => v.status === 1),
     };
   },
   created() {
