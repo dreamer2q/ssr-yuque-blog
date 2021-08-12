@@ -6,8 +6,8 @@
       :key="key"
       :class="{ 'menu-active': isActive(key) }"
     >
-      <a :href="key" class="block">
-        <FontAwesomeIcon style="max-width: 24px" :icon="menu.icon" />
+      <a :href="key" class="">
+        <FontAwesomeIcon style="max-width: 16px" :icon="menu.icon" />
         <span class="ml-2">
           {{ menu.title }}
         </span>

@@ -1,9 +1,8 @@
 
 <template>
-  <div class="flex flex-row border-2">
+  <div style="max-width: 1024px" class="flex flex-row border-2">
     <Sidebar />
-    <div class="w-4"></div>
-    <div style="max-width: 700px" class="p-2">
+    <div class="flex-1 w-0">
       <div id="lake-view" v-html="body"></div>
     </div>
   </div>

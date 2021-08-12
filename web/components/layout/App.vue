@@ -1,10 +1,12 @@
 <template>
-  <div style="width: 960px" class="flex flex-col bg-gray-50">
-    <Header />
-    <div style="width: 960px" class="flex-grow self-center bg-white">
-      <router-view :fetchData="fetchData" />
+  <div class="flex flex-row justify-center bg-gray-300">
+    <div style="width: 1024px" class="flex flex-col content-center">
+      <Header />
+      <div class="bg-white">
+        <router-view :fetchData="fetchData" />
+      </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 </template>
 

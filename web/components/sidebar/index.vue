@@ -1,6 +1,6 @@
 
 <template>
-  <div style="width: 240px" class="m-1">
+  <div style="width: 240px" class="flex-shrink-0">
     <div class="flex flex-col">
       <!-- logo -->
       <Logo />

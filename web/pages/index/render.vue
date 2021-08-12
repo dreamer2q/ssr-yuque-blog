@@ -2,7 +2,7 @@
 <template>
   <div class="flex flex-row border-2">
     <Sidebar />
-    <div class="w-4"></div>
+    <!-- <div class="w-4"></div> -->
     <div class="p-2">
       <div v-for="article in articles" :key="article.id">
         <!-- {{ article.title }} -->
