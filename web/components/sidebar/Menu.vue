@@ -20,7 +20,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faArchive,
-  faCat,
+  // faCat,
   faHome,
   faSearch,
   faTags,
@@ -42,10 +42,10 @@ export default {
           title: '标签',
           icon: faTags,
         },
-        '/classes': {
-          title: '分类',
-          icon: faCat,
-        },
+        // '/classes': {
+        //   title: '分类',
+        //   icon: faCat,
+        // },
         '/archives': {
           title: '归档',
           icon: faArchive,
