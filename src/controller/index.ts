@@ -7,7 +7,6 @@ import {
   Query,
 } from '@midwayjs/decorator';
 import { Context } from 'egg';
-import { HttpService } from '@midwayjs/axios';
 import { RepositoryService } from 'src/service/repository';
 
 @Provide()
@@ -17,10 +16,15 @@ export class Index {
   ctx: Context;
 
   @Inject()
-  http: HttpService;
-
-  @Inject()
   repository: RepositoryService;
+
+  @Get('/404')
+  // @SSRConfig({
+  //   mode: 'csr',
+  // })
+  async common() {
+    return {};
+  }
 
   @Get('/')
   async index(@Query() limit = 20, @Query() offset = 0) {
@@ -33,7 +37,12 @@ export class Index {
   }
 
   @Get('/tags')
-  async viewTags() {
+  async indexTags() {
     return await this.repository.getTags();
+  }
+
+  @Get('/tags/:tag')
+  async indexTagDocs(@Param() tag: string) {
+    return await this.repository.getTagDocs(tag);
   }
 }

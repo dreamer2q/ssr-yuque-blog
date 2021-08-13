@@ -1,3 +1,4 @@
+import { UserConfig } from 'ssr-types';
 import { Provide } from '@midwayjs/decorator';
 import {
   IMidwayWebNext,
@@ -13,7 +14,11 @@ export class RendererHandler implements IWebMiddleware {
   resolve(): MidwayWebMiddleware {
     return async (ctx: Context, next: IMidwayWebNext) => {
       const rendering = async () => {
-        const stream = await render<Readable>(ctx, { stream: true });
+        let config: UserConfig = { stream: true };
+        if (ctx.body.config) {
+          config = Object.assign(config, ctx.body.config);
+        }
+        const stream = await render<Readable>(ctx, config);
         ctx.body = stream;
       };
       //midway

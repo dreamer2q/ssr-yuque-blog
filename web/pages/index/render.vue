@@ -28,7 +28,7 @@ export default {
     console.log(Object.keys(props));
     const articles: DocSeri[] = props.fetchData.data || [];
     return {
-      articles: articles.filter(v => v.status === 1),
+      articles, //articles.filter(v => v.status === 1),
     };
   },
   created() {
