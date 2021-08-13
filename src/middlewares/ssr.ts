@@ -14,6 +14,7 @@ export class RendererHandler implements IWebMiddleware {
   resolve(): MidwayWebMiddleware {
     return async (ctx: Context, next: IMidwayWebNext) => {
       const rendering = async () => {
+        ctx.type = 'html';
         let config: UserConfig = { stream: true };
         if (ctx.body.config) {
           config = Object.assign(config, ctx.body.config);
