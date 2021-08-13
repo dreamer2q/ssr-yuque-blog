@@ -42,4 +42,9 @@ export class Api {
   async indexChives() {
     return await this.repository.getDocs({ limit: 9999 });
   }
+
+  @Get('/search/:q')
+  async search(@Param() q: string) {
+    return await this.repository.getSearch(q);
+  }
 }

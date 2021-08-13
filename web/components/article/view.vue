@@ -8,7 +8,7 @@
     <ArticleMeta :item="item" />
     <!-- content -->
     <div id="lake-view" class="px-4 py-8" v-html="body"></div>
-    <ArticlePager :pager="item.pager" />
+    <ArticlePager v-if="item.pager" :pager="item.pager" />
   </div>
 </template>
 

@@ -87,4 +87,17 @@ export class RepositoryService {
     });
     return data;
   }
+
+  async getSearch(query: string) {
+    const { data } = await this.http.get('/zsearch', {
+      params: {
+        p: 1,
+        q: query,
+        scope: 'dreamer2q/blog',
+        tab: 'book',
+        type: 'content',
+      },
+    });
+    return data;
+  }
 }

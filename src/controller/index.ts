@@ -50,4 +50,18 @@ export class Index {
   async indexChives() {
     return await this.repository.getDocs({ limit: 9999 });
   }
+
+  @Get('/about')
+  async getAbout() {
+    return await this.repository.getDocDetail('_about');
+  }
+
+  @Get('/search')
+  async getSearch(@Query() q: string) {
+    let result = {};
+    if (q) {
+      result = await this.repository.getSearch(q);
+    }
+    return result;
+  }
 }

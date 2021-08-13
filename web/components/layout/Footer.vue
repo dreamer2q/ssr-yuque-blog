@@ -1,6 +1,5 @@
-
 <template>
-  <footer class="flex flex-row py-4 mt-8">
+  <footer class="flex flex-row py-4 mt-4">
     <div style="width: 240px" class="flex-shrink-0 pr-2"></div>
     <div
       class="flex flex-col flex-1 items-stretch text-sm text-gray-500 space-y-2"
