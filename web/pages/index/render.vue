@@ -25,6 +25,11 @@ export default {
   },
   props: ['fetchData'],
   setup(props) {
+    // 1. 不小心让 render 出错
+    // 2. 注释下面代码，解决错误
+    // 3. 重新请求，render 无法恢复正常
+    // console.log(props.test.throw);
+
     console.log(Object.keys(props));
     const articles: DocSeri[] = props.fetchData.data || [];
     return {
