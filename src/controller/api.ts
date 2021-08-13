@@ -37,4 +37,9 @@ export class Api {
   async getTagDocs(@Param() tag: string) {
     return await this.repository.getTagDocs(tag);
   }
+
+  @Get('/archives')
+  async indexChives() {
+    return await this.repository.getDocs({ limit: 9999 });
+  }
 }

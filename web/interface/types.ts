@@ -29,7 +29,7 @@ export interface DocSeri extends Seriablizable {
   likes_count: number;
   comments_count: number;
   content_updated_at: Date;
-  created_at: Date;
+  created_at: string;
   updated_at: Date;
   published_at: Date;
   first_published_at: Date;
