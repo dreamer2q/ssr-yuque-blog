@@ -10,3 +10,7 @@ export interface Params {
 export interface IndexPage {
   fetchData: DocSeri[];
 }
+
+export interface TagsPage {
+  fetchData: Record<string, any>;
+}

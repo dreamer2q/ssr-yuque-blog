@@ -15,7 +15,7 @@ export default (appInfo: EggAppInfo) => {
   config.axios = {
     // baseURL: 'https://www.yuque.com/api/v2',
     baseURL: 'https://www.yuque.com/api',
-    timeout: 1000,
+    timeout: 10000,
     headers: {
       // 'X-Auth-Token': 'Hs7u2y2fiG8rNYS8K1CPdW36PokYElfPmNEjxSN1',
       // 'User-Agent': 'midway-yuque-blog',
@@ -28,7 +28,7 @@ export default (appInfo: EggAppInfo) => {
 
   config.http2 = {
     baseURL: 'https://www.yuque.com/api/v2',
-    timeout: 1000,
+    timeout: 10000,
     headers: {
       'X-Auth-Token': 'Hs7u2y2fiG8rNYS8K1CPdW36PokYElfPmNEjxSN1',
       'User-Agent': 'midway-yuque-blog',

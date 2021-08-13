@@ -27,4 +27,14 @@ export class Api {
   async getDocDetail(@Param() slug: string) {
     return await this.repository.getDocDetail(slug);
   }
+
+  @Get('/tags')
+  async getTags() {
+    return await this.repository.getTags();
+  }
+
+  @Get('/tags/:tag')
+  async getTagDocs(@Param() tag: string) {
+    return await this.repository.getTagDocs(tag);
+  }
 }

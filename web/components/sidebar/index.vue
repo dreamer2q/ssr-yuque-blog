@@ -6,9 +6,9 @@
       <Logo />
       <!-- menu -->
       <Menu />
-      <!-- user -->
-      <User />
     </div>
+    <!-- user -->
+    <User class="sticky" />
   </div>
 </template>
 
@@ -25,5 +25,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.sticky {
+  top: 12px;
+  position: sticky;
+}
 </style>

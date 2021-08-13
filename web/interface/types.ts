@@ -41,3 +41,10 @@ export interface DocSeri extends Seriablizable {
   last_editor: UserSeri;
   book: null;
 }
+
+export interface TagSeri extends Seriablizable {
+  book_id: number;
+  doc_id: number;
+  title: string;
+  user_id: number;
+}
