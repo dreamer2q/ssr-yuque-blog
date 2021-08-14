@@ -3,7 +3,12 @@
     <div style="width: 1024px" class="flex flex-col">
       <Header />
       <div>
-        <router-view :fetchData="fetchData" />
+        <router-view
+          :fetchData="fetchData"
+          :ctx="ctx"
+          :config="config"
+          :asyncData="asyncData"
+        />
       </div>
       <Footer />
     </div>
@@ -19,10 +24,13 @@ import Header from './Header.vue';
 import Footer from './Footer.vue';
 
 export default {
-  props: ['fetchData'],
+  props: ['fetchData', 'ctx', 'config', 'asyncData'],
   components: {
     Header,
     Footer,
+  },
+  setup(props) {
+    // console.log(props);
   },
 };
 </script>

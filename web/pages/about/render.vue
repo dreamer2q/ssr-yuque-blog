@@ -17,6 +17,7 @@ export default {
   props: ['fetchData'],
   setup(props) {
     console.log(Object.keys(props));
+    // console.log(props);
     const data = props.fetchData.data;
     delete data.pager;
     return {

@@ -14,3 +14,7 @@ export interface IndexPage {
 export interface TagsPage {
   fetchData: Record<string, any>;
 }
+
+export interface Layout {
+  fetchData: any;
+}
