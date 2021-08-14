@@ -44,6 +44,7 @@ svg[class*='fa'] {
 
 body {
   background-color: #eeeff0;
+  min-width: 600px;
 }
 
 :root {

@@ -14,12 +14,14 @@
     </div>
     <!-- second line -->
     <div class="flex flex-row flex-wrap items-center space-x-2">
-      <span class="space-x-2" v-if="item.hits">
+      <span class="space-x-2" v-if="item.hits && show('hits')">
         <FontAwesomeIcon :icon="faEye" />
         <span>浏览 {{ item.hits }}</span>
       </span>
-      <FontAwesomeIcon :icon="faComments" />
-      <span>评论 {{ item.comments_count }}</span>
+      <span class="space-x-2" v-if="show('comments')">
+        <FontAwesomeIcon :icon="faComments" />
+        <span>评论 {{ item.comments_count }}</span>
+      </span>
       <!-- hide likes count -->
       <!-- <FontAwesomeIcon :icon="faThumbsUp" /> -->
       <!-- <span>点赞 {{ item.likes_count }}</span> -->
@@ -45,9 +47,10 @@ export default {
     FontAwesomeIcon,
     faInfoCircle,
   },
-  props: ['item'],
+  props: ['item', 'hide'],
   data() {
     return {
+      hidden: this.hide || [],
       faCalendar,
       faInfoCircle,
       faClock,
@@ -55,6 +58,11 @@ export default {
       faComments,
       faThumbsUp,
     };
+  },
+  methods: {
+    show(key: string) {
+      return (this.hidden as string[]).indexOf(key) == -1;
+    },
   },
   computed: {
     url(): string {
