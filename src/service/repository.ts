@@ -1,4 +1,4 @@
-import { DocSeri, TagSeri } from './../../web/interface/types';
+import { DocSeri, TagSeri } from '../interface/types';
 import { HttpService } from '@midwayjs/axios';
 import { Inject, Provide } from '@midwayjs/decorator';
 import { Context } from '@midwayjs/web';

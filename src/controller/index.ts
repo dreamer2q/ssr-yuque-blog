@@ -7,7 +7,7 @@ import {
   Query,
 } from '@midwayjs/decorator';
 import { Context } from 'egg';
-import { RepositoryService } from 'src/service/repository';
+import { RepositoryService } from '../service/repository';
 
 @Provide()
 @Controller('/', { middleware: ['ssrHandler'] })
